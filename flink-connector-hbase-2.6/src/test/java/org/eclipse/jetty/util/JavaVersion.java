@@ -79,7 +79,9 @@ public class JavaVersion {
         this.micro = micro;
     }
 
-    /** @return the string from which this JavaVersion was created */
+    /**
+     * @return the string from which this JavaVersion was created
+     */
     public String getVersion() {
         return version;
     }

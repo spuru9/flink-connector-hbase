@@ -124,7 +124,8 @@ class HBaseDynamicTableFactoryTest {
 
         int[][] lookupKey = {{2}};
         LookupTableSource.LookupRuntimeProvider lookupProvider =
-                hbaseSource.getLookupRuntimeProvider(new LookupRuntimeProviderContext(lookupKey));
+                hbaseSource.getLookupRuntimeProvider(
+                        new LookupRuntimeProviderContext(lookupKey, false));
         assertThat(lookupProvider).isInstanceOf(LookupFunctionProvider.class);
 
         LookupFunction tableFunction =
@@ -338,7 +339,8 @@ class HBaseDynamicTableFactoryTest {
 
         int[][] lookupKey = {{0}};
         LookupTableSource.LookupRuntimeProvider lookupProvider =
-                hbaseSource.getLookupRuntimeProvider(new LookupRuntimeProviderContext(lookupKey));
+                hbaseSource.getLookupRuntimeProvider(
+                        new LookupRuntimeProviderContext(lookupKey, false));
         assertThat(lookupProvider).isInstanceOf(AsyncLookupFunctionProvider.class);
 
         AsyncLookupFunction asyncTableFunction =

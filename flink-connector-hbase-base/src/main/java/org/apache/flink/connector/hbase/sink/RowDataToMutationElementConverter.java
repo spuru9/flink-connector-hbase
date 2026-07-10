@@ -18,8 +18,8 @@
 
 package org.apache.flink.connector.hbase.sink;
 
-import org.apache.flink.api.connector.sink2.Sink;
 import org.apache.flink.api.connector.sink2.SinkWriter;
+import org.apache.flink.api.connector.sink2.WriterInitContext;
 import org.apache.flink.connector.base.sink.writer.ElementConverter;
 import org.apache.flink.connector.hbase.sink.WritableMetadata.TimeToLiveMetadata;
 import org.apache.flink.connector.hbase.sink.WritableMetadata.TimestampMetadata;
@@ -61,7 +61,7 @@ public class RowDataToMutationElementConverter implements ElementConverter<RowDa
     }
 
     @Override
-    public void open(Sink.InitContext context) {
+    public void open(WriterInitContext context) {
         ElementConverter.super.open(context);
         this.serde = new HBaseSerde(schema, nullStringLiteral, ignoreNullValue);
     }
